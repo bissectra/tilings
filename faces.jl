@@ -17,6 +17,7 @@ struct Tile
 end
 
 function Tile(n::Int, side::Real = 1)
+	n ≥ 3 || throw(ArgumentError("n must be at least 3"))
 	vertices = [exp(im * (2π * i / n)) for i in 0:n-1]
 	s = abs(vertices[2] - vertices[1])
 	vertices = vertices / s * side
