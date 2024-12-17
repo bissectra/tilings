@@ -7,7 +7,7 @@ tile = Tile([
 	0.0 + 1.0im,
 ])
 
-tiles = [tile, Tile((tile, 2), rotate(tile), true)]
+tiles = [tile, Tile((tile, 2), flip(rotate(tile)))]
 
 using Makie, CairoMakie, Colors
 
