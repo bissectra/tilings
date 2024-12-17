@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="800" viewBox="0 0 800 800">
+<defs>
+<g>
+<g id="glyph-0-0-a8028f7b">
+<path d="M 4.859375 0 C 4.859375 0 3.625 0 3.625 0 C 3.625 0 3.625 -7.0625 3.625 -7.0625 C 3.625 -7.0625 1.421875 -7.0625 1.421875 -7.0625 C 1.421875 -7.0625 1.421875 -7.953125 1.421875 -7.953125 C 3.328125 -8.1875 3.609375 -8.40625 4.046875 -9.921875 C 4.046875 -9.921875 4.859375 -9.921875 4.859375 -9.921875 C 4.859375 -9.921875 4.859375 0 4.859375 0 Z M 4.859375 0 "/>
+</g>
+</g>
+</defs>
+<rect x="-80" y="-80" width="960" height="960" fill="rgb(100%, 100%, 100%)" fill-opacity="1"/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 16 784 L 784 784 L 784 16 L 16 16 Z M 16 784 "/>
+<path fill-rule="nonzero" fill="rgb(56.470591%, 47.843137%, 83.92157%)" fill-opacity="1" d="M 378.148438 421.851562 L 421.851562 421.851562 L 421.851562 378.148438 L 378.148438 378.148438 Z M 378.148438 421.851562 "/>
+<path fill="none" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 100%, 100%)" stroke-opacity="1" stroke-miterlimit="2" d="M 378.148438 421.851562 L 421.851562 421.851562 "/>
+<path fill="none" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 100%, 100%)" stroke-opacity="1" stroke-miterlimit="2" d="M 421.851562 421.851562 L 421.851562 378.148438 "/>
+<path fill="none" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 100%, 100%)" stroke-opacity="1" stroke-miterlimit="2" d="M 421.851562 378.148438 L 378.148438 378.148438 "/>
+<path fill="none" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 100%, 100%)" stroke-opacity="1" stroke-miterlimit="2" d="M 378.148438 378.148438 L 378.148438 421.851562 "/>
+<path fill="none" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 100%, 100%)" stroke-opacity="1" stroke-miterlimit="2" d="M 400 400 L 400 421.851562 "/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#glyph-0-0-a8028f7b" x="396.108002" y="405.103027"/>
+</g>
+</svg>
