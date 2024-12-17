@@ -50,14 +50,15 @@ function Tile(tile::Tile, a1::Vertex, a2::Vertex)::Tile
 	Tile(f.(tile.vertices))
 end
 
-function Tile(tile::Tile, a1::Vertex, a2::Vertex, mirrored::Bool)::Tile
-	!mirrored && return Tile(tile, a1, a2)
-	Tile(conj(tile), a2, a1)
+function flip(tile::Tile)::Tile
+	vertices = reverse(conj.(tile.vertices))
+	vertices = vcat(vertices[end-1:end], vertices[1:end-2])
+	Tile(vertices)
 end
 
-function Tile(base::Tuple{Tile, Int}, tile::Tile, mirrored::Bool=false)::Tile
+function Tile(base::Tuple{Tile, Int}, tile::Tile)::Tile
 	base, side = base
-	return Tile(tile, base[side+1], base[side], mirrored)
+	return Tile(tile, base[side+1], base[side])
 end
 
 function Tile(n::Int)::Tile
