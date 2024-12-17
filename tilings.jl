@@ -10,6 +10,7 @@ end
 Base.length(tile::Tile) = length(tile.vertices)
 Base.getindex(tile::Tile, i::Int) = tile.vertices[mod1(i, length(tile))]
 Base.getindex(tile::Tile, v::AbstractVector) = [tile[i] for i in v]
+Base.iterate(tile::Tile, i::Int=1) = i > length(tile) ? nothing : (tile[i], i+1)
 side(tile::Tile, i::Int) = abs(tile[i+1] - tile[i])
 Base.angle(a, b, c) = mod(angle((a - b) / (c - b)), 2π)
 Base.angle(tile::Tile, i::Int) = angle(tile[i], tile[i+1], tile[i+2])
