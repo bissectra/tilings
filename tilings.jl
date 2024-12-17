@@ -19,6 +19,9 @@ Base.:+(v::Vertex, tile::Tile) = Tile(v .+ tile.vertices)
 Base.:*(tile::Tile, v::Vertex) = Tile(tile.vertices .* v)
 Base.:*(v::Vertex, tile::Tile) = Tile(v .* tile.vertices)
 Base.:-(tile::Tile, v::Vertex) = Tile(tile.vertices .- v)
+Base.:-(tile::Tile, r::Real) = Tile(tile.vertices .- r)
+Base.:+(tile::Tile, r::Real) = Tile(tile.vertices .+ r)
+Base.:+(tile::Tile, r::Complex{<:Real}) = Tile(tile.vertices .+ r)
 Base.:/(tile::Tile, v::Vertex) = Tile(tile.vertices ./ v)
 Base.conj(tile::Tile) = Tile(conj.(tile.vertices))
 
@@ -110,6 +113,7 @@ colors = Dict(
 	4 => RGB(144 / 255, 122 / 255, 214 / 255),
 	5 => :orange,
 	6 => RGB(79 / 255, 81 / 255, 140 / 255),
+	7 => :blue,
 	8 => :darkorange,
 	12 => RGB(44 / 255, 42 / 255, 74 / 255),
 )
