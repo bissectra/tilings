@@ -88,3 +88,28 @@ function reflection(tile::Tile, p, q)
 	vertices = vcat(vertices[end-1:end], vertices[1:end-2])
 	Tile(vertices)
 end
+
+line!(a::Vertex, b::Vertex; kwargs...) = lines!([reim(a), reim(b)]; kwargs...)
+
+function plot_tiling(tiles::Vector{Tile})
+	for (i, tile) in enumerate(tiles)
+		poly!(tile.vertices, color = colors[length(tile)])
+		for i in 1:length(tile)
+			line!(tile[i], tile[i+1], color = :white, linewidth = 0.5)
+		end
+		# c = centroid(tile)
+		# line!(c, (tile[1] + tile[2]) / 2, color = :white, linewidth = 0.5)
+		# text!(c, string(i), align = (:center, :center), color = :white)
+	end
+end
+
+using Colors
+
+colors = Dict(
+	3 => RGB(218 / 255, 191 / 255, 255 / 255),
+	4 => RGB(144 / 255, 122 / 255, 214 / 255),
+	5 => :orange,
+	6 => RGB(79 / 255, 81 / 255, 140 / 255),
+	8 => :darkorange,
+	12 => RGB(44 / 255, 42 / 255, 74 / 255),
+)

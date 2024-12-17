@@ -147,45 +147,21 @@ for _ ∈ 1:0
 	tiles = dual(tiles)
 end
 
-using Makie, CairoMakie, Colors
-
-colors = Dict(
-	3 => RGB(218 / 255, 191 / 255, 255 / 255),
-	4 => RGB(144 / 255, 122 / 255, 214 / 255),
-	5 => :orange,
-	6 => RGB(79 / 255, 81 / 255, 140 / 255),
-	12 => RGB(44 / 255, 42 / 255, 74 / 255),
-)
+using Makie, CairoMakie
 
 Makie.poly!(vertices::Vector{Vertex}; kwargs...) = poly!(reim.(vertices); kwargs...)
 Makie.text!(v::Vertex, text::String; kwargs...) = text!(reim(v), text = text; kwargs...)
-line!(a::Vertex, b::Vertex; kwargs...) = lines!([reim(a), reim(b)]; kwargs...)
 fig = Figure(size = (800, 800))
 ax = Axis(fig[1, 1], aspect = DataAspect())
 hidedecorations!(ax)
 hidespines!(ax)
 
-for (i, tile) in enumerate(tiles)
-	poly!(tile.vertices, color = colors[length(tile)])
-	for i in 1:length(tile)
-		line!(tile[i], tile[i+1], color = :white, linewidth = 0.5)
-	end
-	# c = centroid(tile)
-	# line!(c, (tile[1] + tile[2]) / 2, color = :white, linewidth = 0.5)
-	# text!(c, string(i), align = (:center, :center), color = :white)
+i = 0
+while !isempty(tiles)
+	global tiles, i
+	empty!(ax)
+	plot_tiling(tiles)
+	save("./output/samy_$(string(i)).svg", fig)
+	tiles = dual(tiles)
+	i += 1
 end
-save("samy.svg", fig)
-
-empty!(ax)
-
-for (i, tile) in enumerate(dual(tiles))
-	poly!(tile.vertices, color = colors[length(tile)])
-	for i in 1:length(tile)
-		line!(tile[i], tile[i+1], color = :white, linewidth = 0.5)
-	end
-	# c = centroid(tile)
-	# line!(c, (tile[1] + tile[2]) / 2, color = :white, linewidth = 0.5)
-	# text!(c, string(i), align = (:center, :center), color = :white)
-end
-save("samy_dual.svg", fig)
-fig

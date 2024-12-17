@@ -30,9 +30,10 @@ function dual(tiles::Vector{Tile})
 		end
 		connected_tiles = sort(connected_tiles, by = sort_func)
 		centroids = [centroid(tile) for (tile, _) in connected_tiles]
-		# alpha = sum(angle(tile, i) for (tile, i) in connected_tiles)
-		# TODO: make sure the alpha check works for the dual of the dual.
-		if length(centroids) >= 3 # && abs(alpha - 2pi) < 1e-6
+		alpha = sum(angle(tile, i-1) for (tile, i) in connected_tiles)
+		alpha = mod2pi(alpha)
+		isclosed = abs(alpha - 2pi) < 1e-6 || abs(alpha) < 1e-6
+		if length(centroids) >= 3 && isclosed
 			push!(dual_tiles, Tile(centroids))
 		end
 	end
