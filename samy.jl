@@ -164,6 +164,7 @@ fig = Figure(size = (800, 800))
 ax = Axis(fig[1, 1], aspect = DataAspect())
 hidedecorations!(ax)
 hidespines!(ax)
+
 for (i, tile) in enumerate(tiles)
 	poly!(tile.vertices, color = colors[length(tile)])
 	for i in 1:length(tile)
@@ -173,5 +174,18 @@ for (i, tile) in enumerate(tiles)
 	# line!(c, (tile[1] + tile[2]) / 2, color = :white, linewidth = 0.5)
 	# text!(c, string(i), align = (:center, :center), color = :white)
 end
-save("output.svg", fig)
+save("samy.svg", fig)
+
+empty!(ax)
+
+for (i, tile) in enumerate(dual(tiles))
+	poly!(tile.vertices, color = colors[length(tile)])
+	for i in 1:length(tile)
+		line!(tile[i], tile[i+1], color = :white, linewidth = 0.5)
+	end
+	# c = centroid(tile)
+	# line!(c, (tile[1] + tile[2]) / 2, color = :white, linewidth = 0.5)
+	# text!(c, string(i), align = (:center, :center), color = :white)
+end
+save("samy_dual.svg", fig)
 fig
