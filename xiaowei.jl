@@ -14,7 +14,7 @@ b = Tile((a, 0), rotate(a, - 1))
 c = Tile((a, 2), rotate(a, 0)) - 1
 d = Tile((c, 0), rotate(c, -1))
 
-n = 50
+n = 20
 r = rand(Bool, n, n)
 tiles = Tile[]
 for i in 0:n-1, j in 0:n-1
@@ -44,7 +44,7 @@ while !isempty(tiles)
 	global tiles, i
 	empty!(ax)
 	plot_tiling(tiles)
-	save("./output/xiaowei_$(string(i)).svg", fig)
+	save("./output/xiaowei/$(string(i)).svg", fig)
 	tiles = dual(tiles)
 	i += 1
 end

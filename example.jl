@@ -65,7 +65,7 @@ while !isempty(tiles)
 	global tiles, i
 	empty!(ax)
 	plot_tiling(tiles)
-	save("./output/example_$(string(i)).svg", fig)
+	save("./output/example/$(string(i)).svg", fig)
 	tiles = dual(tiles)
 	i += 1
 end
