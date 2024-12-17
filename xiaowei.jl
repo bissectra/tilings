@@ -14,7 +14,7 @@ b = Tile((a, 0), rotate(a, - 1))
 c = Tile((a, 2), rotate(a, 0)) - 1
 d = Tile((c, 0), rotate(c, -1))
 
-n = 15
+n = 50
 r = rand(Bool, n, n)
 tiles = Tile[]
 for i in 0:n-1, j in 0:n-1
@@ -35,6 +35,9 @@ fig = Figure(size = (800, 800))
 ax = Axis(fig[1, 1], aspect = DataAspect())
 # hidedecorations!(ax)
 # hidespines!(ax)
+
+xlims!(-1, n + 1)
+ylims!(-1, n + 1)
 
 i = 0
 while !isempty(tiles)
