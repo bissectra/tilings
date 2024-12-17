@@ -136,15 +136,15 @@ b = tiles[1][8]
 d = tiles[2][3]
 e = reflection(d, a, b)
 
-left_tiles = tiles[setdiff(1:length(tiles), [7,14,63,64,67,68,69,70,99,102,103])]
+left_tiles = tiles[setdiff(1:length(tiles), [7, 14, 63, 64, 67, 68, 69, 70, 99, 102, 103])]
 tiles = append!(left_tiles, reflection.(tiles, a, b))
 
-up_tiles = tiles[setdiff(1:length(tiles), [224, 223,222,144,143, 142,116,115,1,2,26,27,28,97,98,99])]
+up_tiles = tiles[setdiff(1:length(tiles), [224, 223, 222, 144, 143, 142, 116, 115, 1, 2, 26, 27, 28, 97, 98, 99])]
 tiles = append!(up_tiles, reflection.(tiles, d, e))
 
-for _ = 1:0
-    global tiles
-    tiles = dual(tiles)
+for _ ∈ 1:0
+	global tiles
+	tiles = dual(tiles)
 end
 
 using Makie, CairoMakie, Colors
@@ -152,7 +152,7 @@ using Makie, CairoMakie, Colors
 colors = Dict(
 	3 => RGB(218 / 255, 191 / 255, 255 / 255),
 	4 => RGB(144 / 255, 122 / 255, 214 / 255),
-    5 => :orange,
+	5 => :orange,
 	6 => RGB(79 / 255, 81 / 255, 140 / 255),
 	12 => RGB(44 / 255, 42 / 255, 74 / 255),
 )
