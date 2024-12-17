@@ -130,14 +130,16 @@ tiles = tiling(
 	],
 )
 
-reflection(z, p, q) = p + (q - p) * conj((z - p) / (q - p))
 a = tiles[1][7]
 b = tiles[1][8]
 d = tiles[2][3]
 e = reflection(d, a, b)
 
-append!(tiles, reflection.(tiles, a, b))
-append!(tiles, reflection.(tiles, d, e))
+left_tiles = tiles[setdiff(1:length(tiles), [7,14,63,64,67,68,69,70,99,102,103])]
+tiles = append!(left_tiles, reflection.(tiles, a, b))
+
+up_tiles = tiles[setdiff(1:length(tiles), [224, 223,222,144,143, 142,116,115,1,2,26,27,28,97,98,99])]
+tiles = append!(up_tiles, reflection.(tiles, d, e))
 
 using Makie, CairoMakie, Colors
 

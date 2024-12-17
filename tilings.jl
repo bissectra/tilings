@@ -78,3 +78,12 @@ function tiling(root::Int, instructions::Vector{Instruction})::Vector{Tile}
 	end
 	tiles
 end
+
+reflection(z, p, q) = p + (q - p) * conj((z - p) / (q - p))
+
+function reflection(tile::Tile, p, q)
+    vertices = [reflection(v, p, q) for v in tile.vertices]
+    vertices = reverse(vertices)
+    vertices = vcat(vertices[end-1:end], vertices[1:end-2])
+    Tile(vertices)
+end
