@@ -24,6 +24,8 @@ Base.:+(tile::Tile, r::Real) = Tile(tile.vertices .+ r)
 Base.:+(tile::Tile, r::Complex{<:Real}) = Tile(tile.vertices .+ r)
 Base.:/(tile::Tile, v::Vertex) = Tile(tile.vertices ./ v)
 Base.conj(tile::Tile) = Tile(conj.(tile.vertices))
+Base.real(tile::Tile) = real.(tile.vertices)
+Base.imag(tile::Tile) = imag.(tile.vertices)
 
 function rotate(tile::Tile)::Tile
 	a1, a2 = tile[1:2]

@@ -151,6 +151,14 @@ ax = Axis(fig[1, 1], aspect = DataAspect())
 hidedecorations!(ax)
 hidespines!(ax)
 
+xmax = maximum(maximum.(real.(tiles)))
+xmin = minimum(minimum.(real.(tiles)))
+ymax = maximum(maximum.(imag.(tiles)))
+ymin = minimum(minimum.(imag.(tiles)))
+
+xlims!(xmin, xmax)
+ylims!(ymin, ymax)
+
 i = 0
 while !isempty(tiles)
 	global tiles, i
