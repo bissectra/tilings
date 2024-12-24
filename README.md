@@ -1,3 +1,6 @@
+# Outdated
+This repo is outdated. Go to https://github.com/bissectra/turtle for an updated version.
+
 # Tiling of the Plane with Regular Polygons
 
 This repository features a unique tiling of the plane with regular polygons, showcasing all vertex types except for the 4-8-8 configuration. Special thanks to Samy Meziane for providing this remarkable example.
